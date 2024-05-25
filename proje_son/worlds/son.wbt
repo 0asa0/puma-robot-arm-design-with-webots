@@ -1,0 +1,219 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.13858617585481606 0.5720741249601973 -0.8084089728676709 0.5822790306929511
+  position -2.0410524425131547 1.1142171310348736 0.9620013366224941
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+  floorTileSize 0.4 0.4
+  floorAppearance Parquetry {
+    type "dark strip"
+  }
+  wallThickness 0.001
+  wallHeight 0.0001
+}
+Robot {
+  children [
+    DEF base Solid {
+      translation 0 0 0.02
+      children [
+        DEF base Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.2 0.2 0.04
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE base
+    }
+    DEF silindirbase Solid {
+      translation 0 0 0.15
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "motor"
+            }
+            PositionSensor {
+              name "ps"
+            }
+          ]
+          endPoint DEF axis1 Solid {
+            translation 0 0.0025 0.19
+            children [
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0 1 0
+                }
+                device [
+                  PositionSensor {
+                    name "ps1"
+                  }
+                  RotationalMotor {
+                    name "motor1"
+                  }
+                ]
+                endPoint DEF axis2 Solid {
+                  translation -0.112 0.0675 0.004
+                  rotation 1 0 0 5.307156870259904e-06
+                  children [
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        axis 0 1 0
+                        anchor -0.155 -0.05 0
+                      }
+                      device [
+                        PositionSensor {
+                          name "ps2"
+                        }
+                        RotationalMotor {
+                          name "motor2"
+                        }
+                      ]
+                      endPoint DEF axis3 Solid {
+                        translation -0.219862 -0.05 2.26405e-06
+                        rotation -0.016286642529826523 -0.001067471691000182 0.9998667940177305 6.283185307179586
+                        children [
+                          HingeJoint {
+                            jointParameters HingeJointParameters {
+                            }
+                            device [
+                              PositionSensor {
+                                name "ps3"
+                              }
+                              RotationalMotor {
+                                name "motor3"
+                              }
+                            ]
+                            endPoint DEF axis4 Solid {
+                              translation -0.115 -4.95336e-25 -2.3015e-07
+                              rotation 1.0937828934094353e-10 1 -1.0431126531690934e-16 1.0150305250839343e-06
+                              children [
+                                HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    axis 0 1 0
+                                    anchor -0.01 0 0
+                                  }
+                                  device [
+                                    PositionSensor {
+                                      name "ps4"
+                                    }
+                                    RotationalMotor {
+                                      name "motor4"
+                                    }
+                                  ]
+                                  endPoint DEF axis5 Solid {
+                                    translation -0.025000000000001 0.019999899999934068 -8.449931997210303e-09
+                                    rotation 1.5347199738047982e-06 -0.9999999999960385 2.3595499943983358e-06 1.5708000134277236
+                                    children [
+                                      GPS {
+                                        translation 0 0 0.02
+                                      }
+                                      DEF axis5 Shape {
+                                        appearance PBRAppearance {
+                                          baseColor 0.513726 0.513726 0.513726
+                                          roughness 1
+                                          metalness 0
+                                        }
+                                        geometry Box {
+                                          size 0.01 0.01 0.04
+                                        }
+                                      }
+                                    ]
+                                    name "solid(6)"
+                                    boundingObject USE axis5
+                                    physics Physics {
+                                    }
+                                  }
+                                }
+                                DEF axis4 Shape {
+                                  appearance PBRAppearance {
+                                    baseColor 0.215686 0.247059 0.266667
+                                    roughness 1
+                                    metalness 0
+                                  }
+                                  geometry Box {
+                                    size 0.03 0.03 0.03
+                                  }
+                                }
+                              ]
+                              boundingObject USE axis4
+                            }
+                          }
+                          DEF axis3 Shape {
+                            appearance PBRAppearance {
+                              baseColor 0.627451 0.627451 0.627451
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry Box {
+                              size 0.2 0.04 0.04
+                            }
+                          }
+                        ]
+                        name "solid(5)"
+                        boundingObject USE axis3
+                      }
+                    }
+                    DEF axis2 Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.215686 0.247059 0.262745
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.3 0.06 0.06
+                      }
+                    }
+                  ]
+                  name "solid(4)"
+                  boundingObject USE axis2
+                }
+              }
+              DEF axis1 Shape {
+                geometry Box {
+                  size 0.075 0.075 0.08
+                }
+              }
+            ]
+            name "solid(3)"
+            boundingObject USE axis1
+          }
+        }
+        DEF silindirbase Shape {
+          appearance PBRAppearance {
+            baseColor 0.14902 0.192157 0.235294
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.3
+            radius 0.04
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE silindirbase
+    }
+  ]
+  controller "my_controller"
+}
