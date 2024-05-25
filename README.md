@@ -1,4 +1,4 @@
-# puma-robot-arm-design-with-webots
+# 5-joints-puma-robot-arm-design-with-webots
 
 
 
